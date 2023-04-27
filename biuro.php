@@ -8,13 +8,20 @@
 </head>
 
 <body>
+    <?php
+    $conn = mysqli_connect('localhost', 'root', '', 'egzamin4');
+    ?>
     <header>
         <h1>WITAMY W BIURZE PODRÓŻY</h1>
     </header>
     <div id="top">
         <h3>ARCHIWUM WYCIECZEK</h3>
         <?php
-        // S1
+        $q1 = "SELECT `id`,`cel`,`cena` from wycieczki where `dostepna`='0'";
+        $res1 = mysqli_query($conn, $q1);
+        foreach ($res1 as $r) {
+            echo $r['id'] . $r['cel'] . $r['cena'] . "<br>";
+        }
         ?>
     </div>
     <div id="left">
@@ -37,12 +44,17 @@
     <div id="mid">
         <h3>TU BYLIŚMY</h3>
         <?php
-        // s2
+        $q2 = "SELECT `nazwaPliku`,`podpis` from `zdjecia` order by podpis desc";
+        $res2 = mysqli_query($conn, $q2);
+        foreach ($res2 as $r) {
+            echo '<img src="' . $r['nazwaPliku'] . '" alt="' . $r['podpis'] . '">';
+        }
+        mysqli_close($conn);
         ?>
     </div>
     <div id="right">
         <h3>SKONTAKTUJ SIĘ</h3>
-        <a href="wycieczki@wycieczki.pl">napisz do nas</a>
+        <a href="mailto:wycieczki@wycieczki.pl">napisz do nas</a>
         <p>telefon 555666777</p>
     </div>
     <footer>
