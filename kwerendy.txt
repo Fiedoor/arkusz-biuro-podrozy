@@ -1,1 +1,4 @@
 Zapytanie 1: SELECT `id`,`cel`,`cena` from wycieczki where `dostepna`=1;
+Zapytanie 2: SELECT `nazwaPliku`,`podpis` from `zdjecia` order by podpis desc;
+Zapytanie 3: SELECT `podpis`, `cena`,`cel` from zdjecia INNER join wycieczki on wycieczki.id=zdjecia.id where `cena`<1200;
+Zapytanie 4: ALTER TABLE wycieczki DROP COLUMN dataWyjazdu;
