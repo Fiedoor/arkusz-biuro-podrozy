@@ -1,0 +1,1 @@
+Zapytanie 1: SELECT `id`,`cel`,`cena` from wycieczki where `dostepna`=1;
